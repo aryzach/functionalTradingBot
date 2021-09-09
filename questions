@@ -1,0 +1,29 @@
+bars
+real-time bars
+orders
+contracts
+request fundamentals
+Request market data for the given contract
+return a [[MarketDataSubscription]] which contains an Rx observable through which the [[Tick]] is delivered
+   *         when is available. This allows to handle market data asynchronously by using reactive programming patterns.
+Tick
+Submit an order for a contract
+ * Retrieve historical data between two dates respecting ib rate limitations:
+   * https://www.interactivebrokers.com/en/software/api/apiguide/tables/historical_data_limitations.htm
+   *
+   * The request is translated internally to potentially several historicalData requests and the future result is fullfilled
+   * on successful completion.
+   *
+   * If any request fails, the result is a failed future.
+   
+rate limit
+
+
+contract  "ib.Stock("AMZ",...,...)"
+then get qualified contract from contract (now I have conId)
+reqTicker(list of qualified contract) -- this gives you a 'ticker object'	
+getTickerAsync in python code
+pull_historical_bars to get data to run with ta-lib (analyze.py) (provider.py)
+learn ta-lib.org
+then orders.py (buy and sell) once I have indicator from ta-lib
+to find breakouts need new contracts.py in google drive 

@@ -20,10 +20,10 @@ rate limit
 
 
 contract  "ib.Stock("AMZ",...,...)"
-then get qualified contract from contract (now I have conId)
+then get qualified contract from contract (now I have conId) (scala version called ibc.contractDetails(c))
 reqTicker(list of qualified contract) -- this gives you a 'ticker object'	
 getTickerAsync in python code
 pull_historical_bars to get data to run with ta-lib (analyze.py) (provider.py)
 learn ta-lib.org
 then orders.py (buy and sell) once I have indicator from ta-lib
-to find breakouts need new contracts.py in google drive 
+to find breakouts need new contracts.py in google drive (I think this is for a scanner so we're not working off of a static list of stocks)

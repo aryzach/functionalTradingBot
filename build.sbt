@@ -1,46 +1,42 @@
-name := "ibclient"
-enablePlugins(PackPlugin)
-
-
-version := "0.2.2-SNAPSHOT"
-
-organization := "com.larroy"
 
 scalaVersion := "2.12.8"
 
-scalacOptions := Seq("-unchecked", "-deprecation", "-feature", "-encoding", "utf8")
 
-libraryDependencies ++= {
-  Seq(
-    "org.specs2" %% "specs2-core" % "4.+" % "test",
-    "org.specs2" %% "specs2-junit" % "4.+" % "test",
-    "com.github.scopt" %% "scopt" % "4.0.0-RC2",
-    "ch.qos.logback" % "logback-classic" % "1.1.+",
-    "org.slf4j" % "jcl-over-slf4j" % "1.7.+",
-    "com.github.tototoshi" %% "scala-csv" % "1.+",
-    "com.typesafe" % "config" % "1.3.+",
-    "com.iheart" %% "ficus" % "+",
-    "io.reactivex" %% "rxscala" % "0.26.+",
-    "com.google.guava" % "guava" % "18.0",
-    "joda-time" % "joda-time" % "2.9.1",
-    "org.joda" % "joda-convert" % "1.2",
-    "org.scala-lang" % "scala-reflect" % scalaVersion.value
-  )
-}
+// That is, to create a valid sbt build, all you've got to do is define the
+// version of Scala you'd like your project to use.
 
-resolvers += Resolver.sonatypeRepo("public")
+// ============================================================================
 
-testOptions in Test += Tests.Argument(TestFrameworks.Specs2, "console", "junitxml")
+// Lines like the above defining `scalaVersion` are called "settings". Settings
+// are key/value pairs. In the case of `scalaVersion`, the key is "scalaVersion"
+// and the value is "2.13.3"
 
+// It's possible to define many kinds of settings, such as:
 
-parallelExecution in Test := false
+name := "scalaTradingBot"
+organization := "aryzach.github.io"
+version := "0.2.2-SNAPSHOT"
 
-test in assembly := {}
+libraryDependencies ++= Seq(
+				"org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2",
+				"com.larroy" % "ibclient_2.12" % "0.2.2-SNAPSHOT"
+				)
 
-val exclude = Set("ApiConnection.java", "ApiController.java")
-sources in (Compile, doc)  ~= ((old: Seq[File]) => {
-  old.filter{ x: sbt.File =>
-    println(x.getName)
-    ! exclude.contains(x.getName)
-}})
+/*
+	 libraryDependencies += "org.scalatest" %% "scalatest" % "3.2.9" % Test
+	 libraryDependencies += "dev.zio" %% "zio" % zioVersion
 
+// both needed for zio test
+libraryDependencies ++= Seq(
+"dev.zio" %% "zio-test"          % zioVersion % "test",
+"dev.zio" %% "zio-test-sbt"      % zioVersion % "test",
+"dev.zio" %% "zio-test-magnolia" % zioVersion % "test" // optional
+)
+testFrameworks += new TestFramework("zio.test.sbt.ZTestFramework")
+
+//libraryDependencies +=
+//  "com.typesafe.akka" %% "akka-actor" % "2.3.16"
+
+val AkkaVersion = "2.6.16"
+libraryDependencies += "com.typesafe.akka" %% "akka-actor" % AkkaVersion
+ */

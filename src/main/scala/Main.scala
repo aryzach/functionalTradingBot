@@ -44,8 +44,10 @@ object Main {
     import com.larroy.ibclient.{IBClient}
 
     val ibc = new IBClient("localhost", 7496, 3)
-    Await.result(ibc.connect(), Duration.Inf) 
-    val unqualifiedContract = new FutureContract("C", "", "CFE")
+    //ibc.disconnect()
+    Await.result(ibc.reconnect(), Duration.Inf) 
+    val unqualifiedContract = new GenericContract(SecType.CASH, "EURUSD")
+    //val unqualifiedContract = new FutureContract("C", "", "CFE")
     //val unqualifiedContract = new StockContract("TSLA")
 
     //val qualifiedContract = Await.result(ibc.contractDetails(unqualifiedContract), Duration.Inf) // this gets contractID
@@ -53,16 +55,21 @@ object Main {
     // not sure if I need but here to remember: ibc.tickPrice and ibc.tickSize
     println("here")
 
-    import scala.concurrent.duration._
+    //import scala.concurrent.duration._
     import org.joda.time._
     import com.ib.client.Types.DurationUnit
     import com.ib.client.Types.WhatToShow
 
     val startDate = new DateTime(2021, 4, 10, 15, 0).toDate
     val endDate = new DateTime(2021, 4, 13, 15, 0).toDate
-    val h = block(ibc.historicalData(unqualifiedContract, endDate, 20, DurationUnit.DAY, BarSize._15_mins, WhatToShow.MIDPOINT, false))
+    //val h = block(ibc.historicalData(unqualifiedContract, endDate, 20, DurationUnit.DAY, BarSize._15_mins, WhatToShow.MIDPOINT, false))
+    val res2 = Await.result(ibc.historicalData(new CashContract("EUR","EUR.USD"), endDate, 120, DurationUnit.DAY, BarSize._5_mins, WhatToShow.MIDPOINT, false), Duration.Inf)
     println("________________________________________________________________________________________________")
-    println(h)
+    println(res2)
+
+    //a = ib.reqHistoricalData(b,'','1 D','5 mins','TRADES',False,True)
+
+
 
   }
 }

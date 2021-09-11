@@ -27,3 +27,8 @@ pull_historical_bars to get data to run with ta-lib (analyze.py) (provider.py)
 learn ta-lib.org
 then orders.py (buy and sell) once I have indicator from ta-lib
 to find breakouts need new contracts.py in google drive (I think this is for a scanner so we're not working off of a static list of stocks)
+
+
+IB logins
+btcjo7537 redred12 (paper)
+arden9050 redred12 (paper)

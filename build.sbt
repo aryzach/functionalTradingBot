@@ -19,7 +19,9 @@ version := "0.2.2-SNAPSHOT"
 
 libraryDependencies ++= Seq(
 				"org.scala-lang.modules" %% "scala-parser-combinators" % "1.1.2",
-				"com.larroy" % "ibclient_2.12" % "0.2.2-SNAPSHOT"
+				"com.larroy" % "ibclient_2.12" % "0.2.2-SNAPSHOT",
+				"com.tictactec" % "ta-lib" % "0.4.0",
+				"org.ta4j" % "ta4j-core" % "0.14"
 				)
 
 /*

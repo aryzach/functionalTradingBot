@@ -1,8 +1,13 @@
-bars
-real-time bars
-orders
-contracts
-request fundamentals
+to find breakouts need new contracts.py in google drive (I think this is for a scanner so we're not working off of a static list of stocks)
+
+ta4j OBV (OnBalanceVolumeIndicator) takes one argument, a BaseBarSeries
+python ta-lib OBV takes two args, both arrays, close and volume
+
+IB logins
+btcjo7537 redred12 (paper)
+arden9050 redred12 (paper)
+
+OLD-------------------------------------------------
 Request market data for the given contract
 return a [[MarketDataSubscription]] which contains an Rx observable through which the [[Tick]] is delivered
    *         when is available. This allows to handle market data asynchronously by using reactive programming patterns.
@@ -26,9 +31,5 @@ getTickerAsync in python code
 pull_historical_bars to get data to run with ta-lib (analyze.py) (provider.py)
 learn ta-lib.org
 then orders.py (buy and sell) once I have indicator from ta-lib
-to find breakouts need new contracts.py in google drive (I think this is for a scanner so we're not working off of a static list of stocks)
 
 
-IB logins
-btcjo7537 redred12 (paper)
-arden9050 redred12 (paper)

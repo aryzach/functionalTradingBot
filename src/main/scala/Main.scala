@@ -1,9 +1,9 @@
-//package com.larroy.ibclient
 
-import com.larroy._
 import com.ib.client.Types.{BarSize, DurationUnit, SecType, WhatToShow}
 import scala.concurrent.{Await, Future}
 import scala.concurrent.duration.Duration
+import com.tictactec.ta.lib._
+import org.ta4j.core._
 
 
 object Main {
@@ -55,19 +55,32 @@ object Main {
     // not sure if I need but here to remember: ibc.tickPrice and ibc.tickSize
     println("here")
 
-    //import scala.concurrent.duration._
     import org.joda.time._
-    import com.ib.client.Types.DurationUnit
-    import com.ib.client.Types.WhatToShow
 
     val startDate = new DateTime(2021, 4, 10, 15, 0).toDate
     val endDate = new DateTime(2021, 4, 13, 15, 0).toDate
     //val h = block(ibc.historicalData(unqualifiedContract, endDate, 20, DurationUnit.DAY, BarSize._15_mins, WhatToShow.MIDPOINT, false))
-    val res2 = Await.result(ibc.historicalData(new CashContract("EUR","EUR.USD"), endDate, 120, DurationUnit.DAY, BarSize._5_mins, WhatToShow.MIDPOINT, false), Duration.Inf)
+    val res2 = Await.result(ibc.historicalData(new CashContract("EUR","EUR.USD"), endDate, 120, DurationUnit.SECOND, BarSize._5_mins, WhatToShow.MIDPOINT, false), Duration.Inf)
     println("________________________________________________________________________________________________")
     println(res2)
 
-    //a = ib.reqHistoricalData(b,'','1 D','5 mins','TRADES',False,True)
+    // run res2 through OBV, then buy or sell
+
+    // from python code -- order = ibs.LimitOrder('BUY', quantity, '%s' % limit_price, account=account, tif='GTC')
+    // case class Buy(override val kind: Kind, override val quantity: Int)
+    import com.larroy.ibclient.order.{Buy, Sell}
+    import com.larroy.ibclient.order.kind.{Limit}
+    val buyOrder = new Buy(new Limit(1.50), 1)
+    val sellOrder = new Sell(new Limit(1.00), 1)
+
+    //this is JAVA native API client.placeOrder(nextOrderId++, ContractSamples.USStock(), OrderSamples.LimitOrder("SELL", 1, 50));
+    // this is IBClient
+    ibc.placeOrder(unqualifiedContract, buyOrder)
+
+
+    ibc.disconnect()
+
+
 
 
 

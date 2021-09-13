@@ -6,6 +6,7 @@ MVP
 	- make a sell
 	- OBV (take historical data / bars and just plug it right in)
 	- make plot of raw historical data and OBV output overlay to understand pattern
+	- use IBClient lib for Bars, but move historicalData functionality to own file (mimic provider.py)
 Bugs
 	- connect to IB without having to log out of IB and log back in
 	- ibc.historicalData API gives runtime error sometimes. I think it's deterministic and has to do with improper param value combinations

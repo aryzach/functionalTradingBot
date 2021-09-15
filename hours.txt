@@ -1,0 +1,15 @@
+Scala WIP
+7		finding and implementing vialble ib client scala library
+5		testing ib client library API with TWS
+1 	publishing ib client as local library
+2		digging into ta4j-OBV and implementing
+3.5	debug allocation issue and make change ibClient lib to allocate buy/sell to an account (without, you had to use GUI to complete order) (pull req made)
+
+
+
+
+
+Haskell WIP
+3		setting up haskell project and compiling with ib-client dependency
+4		getting talib to compile
+5		getting a GHC version installed to be compatible with talib and ib-api, getting both libs to import and compile

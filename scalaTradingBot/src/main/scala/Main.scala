@@ -30,7 +30,7 @@ object Main {
 
     val sellOrder = Orders.suggestSellOrder
 
-    Orders.sell(ibc, account, unqualifiedContract, 1)
+    Orders.buy(ibc, account, unqualifiedContract, 1)
 
     ibc.disconnect()
 

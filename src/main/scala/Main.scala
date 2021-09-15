@@ -16,6 +16,7 @@ import provider._
 
 object Main {
   def testScript(): Unit = {
+    val account = "DU3987932"
 
     val ibc = IB.connect()
 
@@ -29,7 +30,7 @@ object Main {
 
     val sellOrder = Orders.suggestSellOrder
 
-    ibc.placeOrder(unqualifiedContract, sellOrder)
+    Orders.sell(ibc, account, unqualifiedContract, 1)
 
     ibc.disconnect()
 

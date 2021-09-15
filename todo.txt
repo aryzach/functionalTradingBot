@@ -1,9 +1,5 @@
 Features:
 MVP
-	- create a limit order
-	- make a buy
-	- wait some time
-	- make a sell
 	- OBV (take historical data / bars and just plug it right in)
 	- make plot of raw historical data and OBV output overlay to understand pattern
 	- use IBClient lib for Bars, but move historicalData functionality to own file (mimic provider.py)
@@ -14,9 +10,6 @@ Bugs
 
 Architecture:
 	- publish IBClient lib to cloud so it's not a locally stored dependancy
-	- move to more functional style and better code design
-	- port to use ZIO 
-	- better workflow (programatically starting and running IB, using / learning tmux, repl session to test functions)
+	- refactor 
+	- better workflow (programatically starting and running IB, repl session to test functions)
 
-Learning:
-	- find book about concurrency (preferably in Scala / ZIO)

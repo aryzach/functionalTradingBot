@@ -5,14 +5,14 @@ import com.larroy.ibclient.contract.{CashContract, FutureContract, GenericContra
 
 object Contracts {
 
-def suggestForex(): GenericContract = new GenericContract(SecType.CASH, "EURUSD")
+  def suggestForex(): GenericContract = new GenericContract(SecType.CASH, "EURUSD")
 
-def suggestFuture(): FutureContract = new FutureContract("C", "", "CFE")
+  def suggestFuture(): FutureContract = new FutureContract("C", "", "CFE")
 
-def suggestStock(): StockContract = new StockContract("TSLA")
+  def suggestStock(): StockContract = new StockContract("TSLA")
 
-def suggestCash(): CashContract = new CashContract("EUR","EUR.USD")
+  def suggestCash(): CashContract = new CashContract("EUR","EUR.USD")
 
-//val qualifiedContract = Await.result(ibc.contractDetails(unqualifiedContract), Duration.Inf) // this gets contractID
+  //val qualifiedContract = Await.result(ibc.contractDetails(unqualifiedContract), Duration.Inf) // this gets contractID
 
 }
